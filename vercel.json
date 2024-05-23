@@ -1,6 +1,28 @@
 {
     "version": 2,
-    "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "index.js" }]
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["**/*"]
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.js"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "DATABASE_URL": "postgres://muslim1210:lVic5fyorgPM8hB03rVvyMkemlOOkXKN@dpg-cp75h4v79t8c73b2p520-a.singapore-postgres.render.com/demo_init",
+      "JWT_SECRET": "e6b3e6d097ecb0d5a28f8e3b5e4cf0c3f1a4b1f29a7a4d3b2c0e3f1b8f0d5e2f",
+      "COOKIE_SECRET": "f2b1e3d5c7f8a6e4d1b2c5e7f3a8c9b0d4e2f1a3b5c7d6e9f2e1c4b3a5f8d7e6",
+      "ADMIN_CORS": "https://front.gemsdeal.com,https://admin.gemsdeal.com",
+      "STORE_CORS": "https://front.gemsdeal.com,https://admin.gemsdeal.com",
+      "REDIS_URL": "redis://localhost:6379"
+    }
   }
   
